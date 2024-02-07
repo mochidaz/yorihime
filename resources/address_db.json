@@ -1,0 +1,12 @@
+{
+  "th10.exe": {
+    "name": "Touhou 10 - Mountain of Faith",
+    "score_mem_addr": "0x474c44",
+    "live_mem_addr": "0x474c70"
+  },
+  "th14.exe": {
+    "name": "Touhou 14 - Double Dealing Character",
+    "score_mem_addr": "0x4F5830",
+    "live_mem_addr": "0x4f5864"
+  }
+}

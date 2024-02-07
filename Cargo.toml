@@ -1,0 +1,15 @@
+[package]
+name = "yorihime"
+authors = ["Rahman Hakim <rahmanhakim2435@gmail.com>"]
+version = "0.1.0"
+edition = "2021"
+description = "A Touhou Cheating Tool"
+
+[dependencies]
+sysinfo = "0.29.10"
+process-memory = "0.5.0"
+tui = "0.19.0"
+crossterm = "0.27.0"
+unicode-width = "0.1.11"
+serde = { version = "1.0.196", features = ["derive"] }
+serde_json = "1.0.113"
