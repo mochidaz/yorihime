@@ -29,15 +29,6 @@ fn selecting_game_state(app: &mut App) {
     app.running_state = RunningState::Running;
 }
 
-
-
-fn selecting_selections_state(app: &mut App) {
-    app.items = vec![vec!["Select a game"]];
-    app.running_state = RunningState::NotRunning;
-    app.selecting = None;
-}
-
-
 pub fn run_app<B: Backend>(terminal: &mut Terminal<B>, mut app: App) -> io::Result<()> {
 
     loop {
@@ -220,7 +211,11 @@ pub fn run_app<B: Backend>(terminal: &mut Terminal<B>, mut app: App) -> io::Resu
                                             }
                                             2 => {
                                                 app.selecting = Some(Selecting::Bombs);
-                                                app.status = Some(Status::Error(ErrorKind::NotSupported));
+                                                if app.cfg.get_game(app.available_games[app.selected_game].as_str()).unwrap().bomb_mem_addr == 0 {
+                                                    app.status = Some(Status::Error(ErrorKind::NotSupported));
+                                                } else {
+                                                    app.input_mode = InputMode::Editing;
+                                                }
                                             }
                                             3 => {
                                                 app.selecting = Some(Selecting::Power);
@@ -272,7 +267,14 @@ pub fn run_app<B: Backend>(terminal: &mut Terminal<B>, mut app: App) -> io::Resu
                                         }
                                     }
                                     Some(2) => {
-                                        app.status = Some(Status::Error(ErrorKind::NotSupported));
+                                        match write_mem_value(app.pid.unwrap(), app.cfg.get_game(app.available_games[app.selected_game].as_str()).unwrap().bomb_mem_addr, parsed) {
+                                            Ok(_) => {
+                                                app.status = Some(Status::Success);
+                                            }
+                                            Err(e) => {
+                                                app.status = Some(Status::Error(ErrorKind::FailedToWriteMemory));
+                                            }
+                                        }
                                     }
                                     Some(3) => {
                                         app.status = Some(Status::Error(ErrorKind::NotSupported));

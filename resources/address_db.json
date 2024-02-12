@@ -2,11 +2,19 @@
   "th10.exe": {
     "name": "Touhou 10 - Mountain of Faith",
     "score_mem_addr": "0x474c44",
-    "live_mem_addr": "0x474c70"
+    "live_mem_addr": "0x474c70",
+    "bomb_mem_addr": "0x000000"
   },
   "th14.exe": {
     "name": "Touhou 14 - Double Dealing Character",
     "score_mem_addr": "0x4F5830",
-    "live_mem_addr": "0x4f5864"
+    "live_mem_addr": "0x4f5864",
+    "bomb_mem_addr": "0x000000"
+  },
+  "th15.exe": {
+    "name": "Touhou 15 - Legacy of Lunatic Kingdom",
+    "score_mem_addr": "0x4e740c",
+    "live_mem_addr": "0x4e7450",
+    "bomb_mem_addr": "0x4e745c"
   }
 }
