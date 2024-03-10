@@ -1,5 +1,6 @@
 use serde::Deserialize;
 use sysinfo::{ProcessExt, SystemExt};
+use crate::config::Config;
 
 pub fn deserialize_usize<'de, D>(deserializer: D) -> Result<usize, D::Error>
     where
@@ -14,7 +15,7 @@ pub fn get_running_games() -> Vec<String> {
     system.refresh_all();
 
     let process_names = vec![
-        "th06.exe",
+        "東方紅魔郷",
         "th07.exe",
         "th08.exe",
         "th09.exe",
@@ -43,8 +44,9 @@ pub fn get_running_games() -> Vec<String> {
 }
 
 pub fn get_touhou_game_name(process_name: &str) -> &str {
+
     match process_name {
-        "th06.exe" => "Touhou 06 - Embodiment of Scarlet Devil",
+        "東方紅魔郷" => "Touhou 06 - Embodiment of Scarlet Devil",
         "th07.exe" => "Touhou 07 - Perfect Cherry Blossom",
         "th08.exe" => "Touhou 08 - Imperishable Night",
         "th09.exe" => "Touhou 09 - Phantasmagoria of Flower View",
