@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+
 use serde::{Deserialize, Serialize};
 
 use crate::game::Game;
@@ -14,9 +15,7 @@ impl Config {
 
         let games: HashMap<String, Game> = serde_json::from_str(cfg).unwrap();
 
-        Config {
-            games,
-        }
+        Config { games }
     }
 
     pub fn get_game(&self, name: &str) -> Option<&Game> {

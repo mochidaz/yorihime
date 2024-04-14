@@ -1,28 +1,40 @@
 {
   "th06.exe": {
     "name": "Touhou 06 - Embodiment of Scarlet Devil",
-    "alternate_names": ["th06, 東方紅魔郷"],
+    "process_name": "東方紅魔郷.exe",
+    "alternate_names": [
+      "th06, 東方紅魔郷"
+    ],
     "score_mem_addr": "0x69bca0",
     "live_mem_addr": "0x69d4ba",
     "bomb_mem_addr": "0x69d4bb"
   },
   "th10.exe": {
     "name": "Touhou 10 - Mountain of Faith",
-    "alternate_names": ["th10, 東方風神録"],
+    "process_name": "th10.exe",
+    "alternate_names": [
+      "th10, 東方風神録"
+    ],
     "score_mem_addr": "0x474c44",
     "live_mem_addr": "0x474c70",
     "bomb_mem_addr": "0x000000"
   },
   "th14.exe": {
     "name": "Touhou 14 - Double Dealing Character",
-    "alternate_names": ["th14, 東方輝針城"],
+    "process_name": "th14.exe",
+    "alternate_names": [
+      "th14, 東方輝針城"
+    ],
     "score_mem_addr": "0x4F5830",
     "live_mem_addr": "0x4f5864",
     "bomb_mem_addr": "0x000000"
   },
   "th15.exe": {
     "name": "Touhou 15 - Legacy of Lunatic Kingdom",
-    "alternate_names": ["th15, 東方紺珠伝"],
+    "process_name": "th15.exe",
+    "alternate_names": [
+      "th15, 東方紺珠伝"
+    ],
     "score_mem_addr": "0x4e740c",
     "live_mem_addr": "0x4e7450",
     "bomb_mem_addr": "0x4e745c"

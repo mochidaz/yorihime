@@ -1,24 +1,29 @@
+use std::cell::RefCell;
 use std::error::Error;
 use std::io;
-use sysinfo::{ProcessExt, SystemExt};
-use process_memory::{self, Memory, TryIntoProcessHandle};
+use std::rc::Rc;
+
 use ::tui::backend::CrosstermBackend;
 use ::tui::Terminal;
 use crossterm::{
-    event::{self, DisableMouseCapture, EnableMouseCapture},
+    event::{DisableMouseCapture, EnableMouseCapture},
     execute,
     terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},
 };
-use crate::app::App;
-use crate::tui::run_app;
+use process_memory::{self, Memory, TryIntoProcessHandle};
+use sysinfo::{ProcessExt, SystemExt};
 
-mod readers;
-mod tui;
+use crate::app::App;
+use crate::ui::tui::run_app;
+
 mod app;
+mod config;
 mod errors;
 mod game;
-mod config;
+mod readers;
 
+mod inputs;
+mod ui;
 mod utils;
 
 fn main() -> Result<(), Box<dyn Error>> {
@@ -28,8 +33,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     let backend = CrosstermBackend::new(stdout);
     let mut terminal = Terminal::new(backend)?;
 
-    let app = App::new();
-    let res = run_app(&mut terminal, app);
+    let app = Rc::new(RefCell::new(App::new()));
+    let res = run_app(&mut terminal, &app);
 
     disable_raw_mode()?;
     execute!(
