@@ -72,7 +72,6 @@ pub struct App<'a> {
     pub input_mode: InputMode,
     pub items: Vec<Vec<&'a str>>,
     pub current_menu: AppMenu,
-    //pub error: Option<ErrorKind>,
     pub status: AppStatus,
 }
 
@@ -95,7 +94,6 @@ impl<'a> App<'a> {
             items: vec![vec!["Select Game"]],
             current_menu: AppMenu::Main,
             selected_cheat: None,
-            //error: None,
             current_game: None,
             available_games: vec![],
             status: AppStatus::Running,

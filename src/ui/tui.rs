@@ -15,7 +15,12 @@ use crate::ui::ui::ui;
 pub fn run_app<B: Backend>(terminal: &mut Terminal<B>, mut app: &Rc<RefCell<App>>) -> Result<()> {
     terminal.clear()?;
 
+    #[cfg(target_os = "linux")]
     let tick_rate = Duration::from_millis(200);
+
+    #[cfg(not(target_os = "linux"))]
+    let tick_rate = Duration::from_millis(2000);
+
     let events = Events::new(tick_rate);
 
     loop {

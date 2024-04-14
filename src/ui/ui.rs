@@ -168,7 +168,14 @@ fn game_selection<B: Backend>(f: &mut Frame<B>, chunks: Vec<Rect>, app: &mut App
             .max()
             .unwrap_or(0)
             + 1;
-        let cells = item.iter().map(|c| Cell::from(*c));
+        let cells = item.iter().map(|c| {
+            let mut content = c.to_string();
+            if content.width() > 30 {
+                content = content.chars().take(27).collect::<String>();
+                content.push_str("...");
+            }
+            Cell::from(content)
+        });
         Row::new(cells).height(height as u16).bottom_margin(1)
     });
 
