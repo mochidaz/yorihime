@@ -7,7 +7,7 @@ A Touhou Cheating Tool
 - [x] Set Custom Score
 - [x] Set Custom Lives
 - [x] Set Custom Bombs
-- [ ] Set Custom Power (For MoF)
+- [ ] Set Custom Power
 
 ## Supported Games
 
@@ -31,9 +31,13 @@ Just fork, clone, and make some changes. Then make a pull request.
 
 The code for the UI is getting better, but it's still a bit messy. I'm working on it.
 
+## Known Issues
+
+- There's almost no input delay on Windows. If you press it even once, it will register as multiple presses. I've tried changing the event tick rate, but it doesn't seem to work. I'm still looking for a solution.
+- Several errors aren't handled properly.
 
 ## TODO
 
 - [ ] Add support for more games
 - [ ] Add support for more cheats
-- [ ] Recognize games by alternate names (For example, EoSD's process name can be either 東方紅魔郷.exe or th06.exe. We need to make it so that the program can recognize both)
+- [ ] Recognize games by alternate names (For example, EoSD's process name can be either 東方紅魔郷 or th06.exe. We need to make it so that the program can recognize both)
