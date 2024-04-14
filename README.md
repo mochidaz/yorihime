@@ -29,7 +29,7 @@ A Touhou Cheating Tool
 
 Just fork, clone, and make some changes. Then make a pull request.
 
-The code for the UI is so bad, I'm sorry. I'm just too lazy to optimize it.
+The code for the UI is getting better, but it's still a bit messy. I'm working on it.
 
 
 ## TODO
